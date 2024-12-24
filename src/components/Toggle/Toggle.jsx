@@ -10,6 +10,7 @@ export function Toggle() {
    
   return (
     <div className='toggle-container'>
+      <h3>Toggle Button</h3>
         <button onClick={handleToggle}>{toggle? "ON" :"OFF"}</button>
       
     </div>

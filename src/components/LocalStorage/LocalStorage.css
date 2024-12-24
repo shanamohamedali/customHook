@@ -1,0 +1,15 @@
+.localStorage-container{
+    display: flex;
+    flex-direction: column;
+   max-width: 500px;
+
+}
+.localStorage-container button{
+    background-color: brown;
+
+}
+.localStorage-container input{
+padding: 5px;
+margin: 10px;
+
+}
