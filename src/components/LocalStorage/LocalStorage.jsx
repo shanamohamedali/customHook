@@ -2,8 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import { useAddInput } from "../../hooks/useAddInput";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import "./LocalStorage.css";
+import Navbar from "../../Navbar";
 
-function LocalStorage() {
+export function LocalStorage() {
   const { fields, setFields, handleChange, clearFields } = useAddInput(
     { name: "", age: "" },
   );
@@ -27,7 +28,8 @@ function LocalStorage() {
 
   return (
     <div className="localStorage-container">
-      <h3>Local storage sample</h3>
+      <Navbar/>
+      <h3>Localstorage using Custom Hook</h3>
       <div>
         <label htmlFor="name">Name:</label>
         <input
@@ -59,4 +61,4 @@ function LocalStorage() {
   );
 }
 
-export default LocalStorage;
+
