@@ -9,8 +9,14 @@ export const useAddInput = (initialValue) => {
 
    }))
   };
+
+  const clearFields=()=>{
+    setFields("")
+  }
   return {
     fields,
+    setFields,
     handleChange,
+    clearFields,
   };
 };

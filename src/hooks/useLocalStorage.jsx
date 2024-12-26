@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export const useLocalStorage=(key="")=>{
-    const setData=(data="")=>{
+export const useLocalStorage=(key)=>{
+    const{localStorageState,setLocalStorageState}=useState(getData());
+
+    const setData=(data)=>{
+        console("setdata...",data)
         try{
             localStorage.setItem(key,JSON.stringify(data))
         }
@@ -9,14 +12,14 @@ export const useLocalStorage=(key="")=>{
             console.log(error)
         }
     }
-
-    const getData=()=>{
-        const item=localStorage.getItem(key)
-        return item? JSON.parse(item) : undefined;
-    }
+const getData=()=>{
+    const item=localStorage.getItem(key)
+  return item? JSON.parse(item):null;
+}
+        
  
    return{
     setData,
-    getData
+    localStorageState
    };
 }
