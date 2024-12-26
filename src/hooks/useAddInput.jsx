@@ -10,13 +10,13 @@ export const useAddInput = (initialValue) => {
    }))
   };
 
-  const clearFields=()=>{
-    setFields("")
-  }
+  // const clearFields=()=>{
+  //   setFields("")
+  // }
   return {
     fields,
     setFields,
     handleChange,
-    clearFields,
+  
   };
 };

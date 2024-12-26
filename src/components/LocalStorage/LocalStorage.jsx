@@ -5,8 +5,10 @@ import "./LocalStorage.css";
 import Navbar from "../../Navbar";
 
 export function LocalStorage() {
-  const { fields, setFields, handleChange, clearFields } = useAddInput(
-    { name: "", age: "" },
+  const { fields,handleChange} = useAddInput(
+    { 
+      name: "", age: "" 
+    }
   );
 
   const { setData, localStorageState } = useLocalStorage("userData");
@@ -20,7 +22,7 @@ export function LocalStorage() {
   const onHandleSave = (e) => {
     e.preventDefault();
     //clearFields;
-    inputref.current.focus();
+     inputref.current.focus();
   };
 
   console.log("...fields", fields);
