@@ -17,12 +17,12 @@ function LocalStorage() {
 
   const onHandleSave =(e) => {
     e.preventDefault();
-    clearFields;
+    //clearFields;
   
   };
 
-  console.log("...fields", fields.name);
-  console.log("...localState...", localStorageState);
+  console.log("...fields", fields);
+  console.log("...localgetState...", localStorageState);
 
 
   return (
@@ -49,11 +49,11 @@ function LocalStorage() {
       <div>
         <button onClick={onHandleSave}>Save</button>
       </div>
-      {/* {/* {localStorageState && (
+       {localStorageState && (
         <h3>
-          Name: {userData.name},Age:{userData.age}
+          Name: {localStorageState.name}, Age:{localStorageState.age}
         </h3>
-      )} */}
+      )}
     </div>
   );
 }
