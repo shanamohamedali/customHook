@@ -1,29 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useAddInput } from "../../hooks/useAddInput";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import "./LocalStorage.css";
 
 function LocalStorage() {
-  const { fields, setFields, handleChange,clearFields } = useAddInput({
-    name: "",
-    age: "",
-  });
+  const { fields, setFields, handleChange, clearFields } = useAddInput(
+    { name: "", age: "" },
+  );
 
   const { setData, localStorageState } = useLocalStorage("userData");
-  
-  useEffect(()=>{
-    setData(fields);
-  },[fields])
 
-  const onHandleSave =(e) => {
+  const inputref = useRef();
+
+  useEffect(() => {
+    setData(fields);
+  }, [fields]);
+
+  const onHandleSave = (e) => {
     e.preventDefault();
     //clearFields;
-  
+    inputref.current.focus();
   };
 
   console.log("...fields", fields);
   console.log("...localgetState...", localStorageState);
-
 
   return (
     <div className="localStorage-container">
@@ -42,6 +42,7 @@ function LocalStorage() {
         <input
           name="age"
           id="age"
+          ref={inputref}
           value={fields.age}
           onChange={handleChange}
         ></input>
@@ -49,7 +50,7 @@ function LocalStorage() {
       <div>
         <button onClick={onHandleSave}>Save</button>
       </div>
-       {localStorageState && (
+      {localStorageState && (
         <h3>
           Name: {localStorageState.name}, Age:{localStorageState.age}
         </h3>
